@@ -8,6 +8,9 @@ using UnityEngine;
 public class LoverMode : MonoBehaviour
 {
     private bool wasInLove;
+
+    [SerializeField] private Transform charactertransform;
+
     [SerializeField] private bool isInLove;
 
     [SerializeField] private float followHisLoveSpeed;
@@ -26,7 +29,7 @@ public class LoverMode : MonoBehaviour
 
     void Start()
     {
-        loverRenderer = GetComponent<Renderer>();
+        loverRenderer = GetComponentInParent<Renderer>();
     }
 
     void Update()
@@ -47,7 +50,6 @@ public class LoverMode : MonoBehaviour
 
     private void FollowHisLove()
     {
-
         if (isInLove && targetLover is not null)
         {
             if (StopFollowIfAlreadyInLove())
@@ -90,7 +92,7 @@ public class LoverMode : MonoBehaviour
         LoverMode closestLover = null;
         foreach (var closeLover in closeLovers.Where(l => !l.isInLove))
         {
-            var distance = (closeLover.transform.position - transform.position).magnitude;
+            var distance = (closeLover.transform.position - charactertransform.position).magnitude;
             if (distance < closestLoverDistance)
             {
                 closestLoverDistance = distance;
@@ -102,7 +104,7 @@ public class LoverMode : MonoBehaviour
 
     private void FollowTargetLover()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetLover.transform.position, followHisLoveSpeed * Time.deltaTime);
+        charactertransform.position = Vector3.MoveTowards(charactertransform.position, targetLover.transform.position, followHisLoveSpeed * Time.deltaTime);
     }
 
     private void GiveLoveToTarget()

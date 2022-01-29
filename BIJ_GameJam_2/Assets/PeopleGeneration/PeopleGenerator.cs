@@ -40,7 +40,7 @@ public class PeopleGenerator : MonoBehaviour
 
         if (putInLove)
         {
-            instance.GetComponent<LoverMode>().PutInLove();
+            instance.GetComponentInChildren<LoverMode>().PutInLove();
         }
     }
 

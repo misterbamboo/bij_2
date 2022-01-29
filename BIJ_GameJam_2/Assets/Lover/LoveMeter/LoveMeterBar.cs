@@ -17,11 +17,19 @@ public class LoveMeterBar : MonoBehaviour
     [SerializeField]
     private float hideCanvasTimeSeconds = 0.5f;
 
+    [SerializeField]
+    private LoveMeter loveMeter;
+
     private Coroutine hideCanvasCoroutine = null;
 
     private void Awake()
     {
-        GetComponentInParent<LoveMeter>().OnLovePctChanged += HandleLoveMeterChanged;
+        if (loveMeter == null)
+        {
+            throw new System.Exception("LoveMeterBar - Need LoveMeter");
+        }
+
+        loveMeter.OnLovePctChanged += HandleLoveMeterChanged;
         canvas.enabled = false;
     }
 

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7599972573943276334}
   - component: {fileID: 8186701306546281702}
   - component: {fileID: 4001826120258294443}
-  - component: {fileID: 5147401827086423895}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -566,7 +565,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4133
+  m_VersionIndex: 4136
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -652,20 +651,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434147232203476539}
   m_Mesh: {fileID: 0}
---- !u!64 &5147401827086423895
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1434147232203476539}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &7153396546622679697
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,7 +664,6 @@ GameObject:
   - component: {fileID: 2136189401217794804}
   - component: {fileID: 769450011427695282}
   - component: {fileID: 6675506717631811007}
-  - component: {fileID: 3454865668402711987}
   m_Layer: 0
   m_Name: Cone
   m_TagString: Untagged
@@ -1052,7 +1036,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1539
+  m_VersionIndex: 1542
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1136,20 +1120,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7153396546622679697}
-  m_Mesh: {fileID: 0}
---- !u!64 &3454865668402711987
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7153396546622679697}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &7402473282052663969
 GameObject:
@@ -1241,4 +1211,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2cf19b11207d949982b7f81b5bc194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Amount: 10
+  AmountOfLove: 50
