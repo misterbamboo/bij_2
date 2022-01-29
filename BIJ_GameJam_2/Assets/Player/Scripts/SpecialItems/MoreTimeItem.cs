@@ -2,13 +2,11 @@
 
 namespace Assets.Player.Scripts.SpecialItems
 {
-    public class ThreeArrowsItem : MonoBehaviour
+    public class MoreTimeItem : MonoBehaviour
     {
         private void OnTriggerEnter(Collider other)
         {
-            var otherBow = other.GetComponentInChildren<Bow>();
-
-            otherBow.BoosterTime += 5.0f;
+            CountdownTimer.Instance.StartTime += 10.0f;
 
             Destroy(gameObject);
         }

@@ -36,7 +36,6 @@ public class Bow : MonoBehaviour
         {
             BoosterTime -= Time.deltaTime;
             var time = TimeSpan.FromSeconds(BoosterTime);
-            print(BoosterTime);
 
             useThreeArrows = time > TimeSpan.Zero;
         } 
