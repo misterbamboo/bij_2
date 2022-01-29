@@ -6,14 +6,23 @@ using UnityEngine.UI;
 public class LoveMeterBar : MonoBehaviour
 {
     [SerializeField]
+    private Canvas canvas;
+
+    [SerializeField]
     private Image foregroundImage;
 
     [SerializeField]
     private float updateSpeedSeconds = 0.5f;
 
+    [SerializeField]
+    private float hideCanvasTimeSeconds = 0.5f;
+
+    private Coroutine hideCanvasCoroutine = null;
+
     private void Awake()
     {
         GetComponentInParent<LoveMeter>().OnLovePctChanged += HandleLoveMeterChanged;
+        canvas.enabled = false;
     }
 
     private void HandleLoveMeterChanged(float pct)
@@ -23,6 +32,8 @@ public class LoveMeterBar : MonoBehaviour
 
     private IEnumerator ChangeToPct(float pct)
     {
+        canvas.enabled = true;
+
         float preChangePct = foregroundImage.fillAmount;
         float elapsed = 0f;
 
@@ -34,6 +45,19 @@ public class LoveMeterBar : MonoBehaviour
         }
 
         foregroundImage.fillAmount = pct;
+
+        if (hideCanvasCoroutine != null)
+        {
+            StopCoroutine(hideCanvasCoroutine);
+        }
+        hideCanvasCoroutine = StartCoroutine(HideCanvas());   
+    }
+
+    private IEnumerator HideCanvas()
+    {
+        yield return new WaitForSeconds(hideCanvasTimeSeconds);
+        canvas.enabled = false;
+        yield return null;
     }
 
     private void LateUpdate()

@@ -18,12 +18,14 @@ public class LoveMeter : MonoBehaviour
     void OnEnable()
     {
         currentLove = 0;
-        OnLovePctChanged(GetCurrentLovePct());
     }
 
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ModifyLove(10.0f);
+        }
     }
 
     public void ModifyLove(float amount)
