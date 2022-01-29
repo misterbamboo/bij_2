@@ -19,6 +19,8 @@ public class CountdownTimer : MonoBehaviour
 
     void Start()
     {
+        GameManager.Instance.OnGameOver += GameOver;
+        GameManager.Instance.OnGameStart += GameOver;
     }
 
     void Update()
@@ -30,15 +32,23 @@ public class CountdownTimer : MonoBehaviour
 
         if (time <= TimeSpan.Zero)
         {
-            EndTime();
+            GameManager.Instance.TimeOut();
         }
 
-        TimerText.text = $"{time:mm\\:ss}";
+        TimerText.text = $"{time:mm\\:ss\\:fff}";
     }
 
-    private void EndTime()
+    public void GameStart()
     {
-        _stopTimer = true;
-        EndGame.Instance.GameOver();
+        this.enabled = true;
+        this.TimerText.enabled = true;
+        this._stopTimer = false;
+    }
+
+    public void GameOver()
+    {
+        this.enabled = false;
+        this.TimerText.enabled = false;
+        this._stopTimer = true;
     }
 }
