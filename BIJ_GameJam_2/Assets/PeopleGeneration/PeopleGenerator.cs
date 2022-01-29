@@ -28,14 +28,20 @@ public class PeopleGenerator : MonoBehaviour
     {
         for (int i = 0; i < numberOfPeople; i++)
         {
-            GenerateOnePerson(center, xSize, zSize);
+            bool putInLove = i == 0;
+            GenerateOnePerson(center, xSize, zSize, putInLove);
         }
     }
 
-    private void GenerateOnePerson(Vector3 center, float xSize, float zSize)
+    private void GenerateOnePerson(Vector3 center, float xSize, float zSize, bool putInLove)
     {
         var randomPos = GenerateRandomPosition(center, xSize, zSize);
-        Instantiate(prefab, randomPos, Quaternion.identity);
+        var instance = Instantiate(prefab, randomPos, Quaternion.identity);
+
+        if (putInLove)
+        {
+            instance.GetComponent<LoverMode>().PutInLove();
+        }
     }
 
     private static Vector3 GenerateRandomPosition(Vector3 center, float xSize, float zSize)

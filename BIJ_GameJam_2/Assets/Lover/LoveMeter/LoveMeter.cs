@@ -5,31 +5,29 @@ using UnityEngine;
 
 public class LoveMeter : MonoBehaviour
 {
+    public bool IsFull => currentLove >= maxLove;
+
     [SerializeField]
-    private float maxLove = 100.0f;
+    private float maxLove = 100;
 
     private float currentLove;
+
 
     public event Action<float> OnLovePctChanged = delegate { };
 
     void OnEnable()
     {
         currentLove = 0;
-        OnLovePctChanged(GetCurrentLovePct());
     }
-    
+
     public void ModifyLove(float amount)
     {
-        var newLoveAmount = currentLove + amount;
-        if (newLoveAmount <= maxLove)
-        {
-            currentLove += amount;
-            OnLovePctChanged(GetCurrentLovePct());
-        }
+        currentLove = Math.Clamp(currentLove + amount, 0, maxLove);
+        OnLovePctChanged(GetCurrentLovePct());
     }
 
     private float GetCurrentLovePct()
-    { 
-        return currentLove / maxLove;
+    {
+        return (float)currentLove / (float)maxLove;
     }
 }

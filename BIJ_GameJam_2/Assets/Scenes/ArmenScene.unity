@@ -796,6 +796,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1597603784}
     m_Modifications:
+    - target: {fileID: 871812811417466707, guid: ff3a7e1571c4c1e40bb19eb4a7982aba,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 871812811417466710, guid: ff3a7e1571c4c1e40bb19eb4a7982aba,
+        type: 3}
+      propertyPath: hideCanvasTimeSeconds
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 871812811417466711, guid: ff3a7e1571c4c1e40bb19eb4a7982aba,
         type: 3}
       propertyPath: m_Pivot.x
@@ -905,6 +915,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LoveMeterBarCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 871812811417466712, guid: ff3a7e1571c4c1e40bb19eb4a7982aba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff3a7e1571c4c1e40bb19eb4a7982aba, type: 3}

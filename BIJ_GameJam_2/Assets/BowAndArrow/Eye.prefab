@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2350937737743038281}
   - component: {fileID: 3023970487425692903}
   - component: {fileID: 1663129253278029744}
-  - component: {fileID: 6504428180699373326}
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -85,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6504428180699373326
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3683870685051040957}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7667867986648232138
 GameObject:
   m_ObjectHideFlags: 0
