@@ -8,7 +8,7 @@ public class CountdownTimer : MonoBehaviour
 
     [SerializeField] TMP_Text TimerText;
 
-    [SerializeField] float StartTime;
+    [SerializeField] public float StartTime;
 
     private bool _stopTimer = false;
 
@@ -20,7 +20,7 @@ public class CountdownTimer : MonoBehaviour
     void Start()
     {
         GameManager.Instance.OnGameOver += GameOver;
-        GameManager.Instance.OnGameStart += GameOver;
+        GameManager.Instance.OnGameStart += GameStart;
     }
 
     void Update()
