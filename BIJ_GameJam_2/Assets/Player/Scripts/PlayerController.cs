@@ -3,31 +3,61 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private IPlayerInput PlayerInput { get; set; }
+    public static PlayerController Instance { get; private set; }
+
+    [SerializeField] private float height;
+
+    [SerializeField] private float speed;
+
+    private IPlayerInput playerInput;
 
     private Rigidbody rb;
 
-    [SerializeField] private float height = 2.0f;
+    private Vector3 lastPos;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
-        PlayerInput = Assets.SharedKernel.Inputs.PlayerInput.Instance;
+        playerInput = PlayerInput.Instance;
         rb = GetComponent<Rigidbody>();
+        FixHeight();
+
+        lastPos = transform.position + Vector3.forward;
     }
 
     void Update()
     {
+        var direction = transform.position - lastPos;
+        transform.LookAt(transform.position + direction);
+        lastPos = transform.position;
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        var raw = new Vector3(PlayerInput.Horizontal, 0, PlayerInput.Vertical);
-        var movement = Quaternion.AngleAxis(45, Vector3.up) * raw;
+        rb.AddForce(Get45RotatedMovement());
+        FixHeight();
+    }
 
-        var diff = height - transform.position.y;
-        var yadjust = new Vector3(0, diff * Time.deltaTime * 100, 0);
+    private Vector3 Get45RotatedMovement()
+    {
+        var raw = GetRawInputMovement();
+        return Quaternion.AngleAxis(45, Vector3.up) * raw;
+    }
 
-        var force = movement + yadjust;
-        rb.AddForce(force);
+    private Vector3 GetRawInputMovement()
+    {
+        var timeSpeed = speed * Time.deltaTime;
+        return new Vector3(playerInput.Horizontal * timeSpeed, 0, playerInput.Vertical * timeSpeed);
+    }
+
+    private void FixHeight()
+    {
+        var pos = rb.transform.position;
+        pos.y = height;
+        rb.transform.position = pos;
     }
 }
