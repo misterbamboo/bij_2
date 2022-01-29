@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(LoveMeter))]
 public class LoverMode : MonoBehaviour
 {
     private bool wasInLove;
     [SerializeField] private bool isInLove;
 
     [SerializeField] private float followHisLoveSpeed;
+
+    [SerializeField] private float giveLoveSpeed;
 
     [SerializeField] private Material loverMaterial;
 
@@ -30,6 +33,7 @@ public class LoverMode : MonoBehaviour
     {
         FindLover();
         FollowHisLove();
+        GiveLoveToTarget();
         UpdateLoverApparence();
     }
 
@@ -52,6 +56,11 @@ public class LoverMode : MonoBehaviour
             }
             FollowTargetLover();
         }
+    }
+
+    public void PutInLove()
+    {
+        isInLove = true;
     }
 
     private bool StopFollowIfAlreadyInLove()
@@ -96,13 +105,16 @@ public class LoverMode : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, targetLover.transform.position, followHisLoveSpeed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void GiveLoveToTarget()
     {
-        var otherLover = collision.gameObject.GetComponent<LoverMode>();
-        if (otherLover is not null)
+        if (targetLover is not null)
         {
-            otherLover.isInLove = true;
-            targetLover = null;
+            var loveMeter = targetLover.GetComponent<LoveMeter>();
+            loveMeter.ModifyLove(giveLoveSpeed * Time.deltaTime);
+            if (loveMeter.IsFull)
+            {
+                targetLover.isInLove = true;
+            }
         }
     }
 
