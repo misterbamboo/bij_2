@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Shambling : MonoBehaviour
@@ -11,12 +12,14 @@ public class Shambling : MonoBehaviour
     [SerializeField]
     private bool _directionTimerEnabled;
 
+    [SerializeField]
+    private float _giveSadnessSpeed;
+
+    private List<LoveMeter> _loversInProximity = new();
+
     // Start is called before the first frame update
     void Start()
     {
-        //Direction = ChooseNextDirection();
-        //transform.LookAt(transform.position + Direction);
-        _speed = 50.0f;
         _directionTimerEnabled = true;
 
         StartCoroutine(ChangeDirection());
@@ -25,23 +28,44 @@ public class Shambling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Direction * _speed * Time.deltaTime;
-        //Vector3.MoveTowards(transform.position, Destination, _speed * Time.deltaTime);
+        MoveAimlessly();
+        SpreadSadness();
     }
 
-    private void OnDestroy()
+    void OnTriggerEnter(Collider other)
     {
-        _directionTimerEnabled = false;
+        var meter = other.GetComponent<LoveMeter>();
+        if (meter != null && !_loversInProximity.Contains(meter))
+        {
+            _loversInProximity.Add(meter);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+        => _loversInProximity.Remove(other.GetComponent<LoveMeter>());
+
+    private void OnDestroy() => _directionTimerEnabled = false;
+
+    private void MoveAimlessly()
+        => transform.position += Direction * _speed * Time.deltaTime;
+
+    private void SpreadSadness()
+    {
+        foreach (var meter in _loversInProximity)
+        {
+            if (meter != null)
+                meter.ModifyLove(-_giveSadnessSpeed * Time.deltaTime);
+        }
     }
 
     IEnumerator ChangeDirection()
     {
-        while(_directionTimerEnabled)
+        while (_directionTimerEnabled)
         {
             Direction = ChooseNextDirection();
             transform.LookAt(transform.position + Direction);
 
-            yield return new WaitForSeconds(Random.Range(1.0f, 2.0f));
+            yield return new WaitForSeconds(Random.Range(1.0f, 5.0f));
         }
     }
 
