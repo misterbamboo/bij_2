@@ -6,9 +6,9 @@ using UnityEngine;
 public class LoveMeter : MonoBehaviour
 {
     [SerializeField]
-    private int maxLove = 100;
+    private float maxLove = 100.0f;
 
-    private int currentLove;
+    private float currentLove;
 
     public event Action<float> OnLovePctChanged = delegate { };
 
@@ -17,18 +17,10 @@ public class LoveMeter : MonoBehaviour
         currentLove = 0;
         OnLovePctChanged(GetCurrentLovePct());
     }
-
-    void Update()
+    
+    public void ModifyLove(float amount)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ModifyLove(10);
-        }
-    }
-
-    public void ModifyLove(int amount)
-    {
-        int newLoveAmount = currentLove + amount;
+        var newLoveAmount = currentLove + amount;
         if (newLoveAmount <= maxLove)
         {
             currentLove += amount;
@@ -38,6 +30,6 @@ public class LoveMeter : MonoBehaviour
 
     private float GetCurrentLovePct()
     { 
-        return (float)currentLove / (float)maxLove;
+        return currentLove / maxLove;
     }
 }
