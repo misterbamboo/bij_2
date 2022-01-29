@@ -87,7 +87,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -227,8 +227,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: ba31f7ff
-      m_LastClickedID: -577094
+      m_SelectedIDs: ac6cf6ff
+      m_LastClickedID: -627540
       m_ExpandedIDs: c231f7ff1682f8ffb464f9ff80c2faff1404fbfffcb7fbff80c4fdff38fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -389,7 +389,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       floating: 0
       collapsed: 0
-      displayed: 0
+      displayed: 1
       snapOffset: {x: 0, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -696,7 +696,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 747b0000
     m_LastClickedID: 31604
-    m_ExpandedIDs: 000000002c660000747b000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000002c66000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -749,8 +749,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: ba31f7ff
-    m_LastClickedInstanceID: -577094
+    m_SelectedInstanceIDs: ac6cf6ff
+    m_LastClickedInstanceID: -627540
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
