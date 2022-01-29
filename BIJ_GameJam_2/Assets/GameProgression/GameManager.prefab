@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimerText: {fileID: 8008901386456648103}
-  StartTime: 3
+  StartTime: 60
 --- !u!114 &8008901387383282687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,4 +547,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4783fde4e6213b4faffd1c5d447a537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBeforeRestart: 1
+  TimeBeforeRestart: 3
