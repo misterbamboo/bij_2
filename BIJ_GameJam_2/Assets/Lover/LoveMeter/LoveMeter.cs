@@ -20,14 +20,6 @@ public class LoveMeter : MonoBehaviour
         currentLove = 0;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ModifyLove(10.0f);
-        }
-    }
-
     public void ModifyLove(float amount)
     {
         currentLove = Math.Clamp(currentLove + amount, 0, maxLove);
