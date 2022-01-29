@@ -14,8 +14,10 @@ GameObject:
   - component: {fileID: 8607624335915153130}
   - component: {fileID: 981867273322324956}
   - component: {fileID: 4300948039057265841}
+  - component: {fileID: 8112820200117327543}
+  - component: {fileID: 2892034958628071474}
   m_Layer: 0
-  m_Name: Random_Prefab_for_tests_to_delete
+  m_Name: Lover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1237,7 +1239,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: bb929df978daaa2439a80b032c2ead61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1297,3 +1299,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8112820200117327543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602262304632173708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434e5892c78f5aa4bbb37775cb8f2ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInLove: 0
+  followHisLoveSpeed: 3
+  loverMaterial: {fileID: 2100000, guid: 59e673e87cd046e40823cba8607842a0, type: 2}
+  noneLoverMaterial: {fileID: 2100000, guid: bb929df978daaa2439a80b032c2ead61, type: 2}
+--- !u!135 &2892034958628071474
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602262304632173708}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 1, y: 1, z: 1}
