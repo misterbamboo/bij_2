@@ -115,8 +115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae81d1965e8aa845b1efd7e37db68cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 871812811417466707}
   foregroundImage: {fileID: 871812811888207630}
   updateSpeedSeconds: 0.5
+  hideCanvasTimeSeconds: 0.5
 --- !u!1 &871812811888207632
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,12 +18,6 @@ public class LoveMeter : MonoBehaviour
     void OnEnable()
     {
         currentLove = 0;
-        OnLovePctChanged(GetCurrentLovePct());
-    }
-
-    void Update()
-    {
-
     }
 
     public void ModifyLove(float amount)
