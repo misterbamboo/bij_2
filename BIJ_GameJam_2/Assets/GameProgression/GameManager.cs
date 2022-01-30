@@ -17,22 +17,20 @@ public class GameManager : MonoBehaviour
     public float MapSizeZ => mapSize.y;
 
     public event Action OnGameOver = delegate { };
+    public event Action OnGameSuccess = delegate { };
     public event Action OnGameStart = delegate { };
+    public event Action<int> OnGameCounterIncrement = delegate { };
 
     void Awake()
     {
         Instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    public void IncrementGameCounter(int by) => OnGameCounterIncrement(by);
 
-    // Update is called once per frame
-    void Update()
+    public void Success()
     {
-
+        OnGameSuccess();
     }
 
     public void TimeOut()

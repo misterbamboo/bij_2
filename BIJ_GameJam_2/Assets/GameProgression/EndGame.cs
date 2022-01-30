@@ -14,7 +14,8 @@ public class EndGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.OnGameOver += GameOver;
+        GameManager.Instance.OnGameOver += () => GameFinish("Game Over");
+        GameManager.Instance.OnGameSuccess += () => GameFinish("Congratulation!");
         GameManager.Instance.OnGameStart += GameStart;
     }
 
@@ -29,9 +30,9 @@ public class EndGame : MonoBehaviour
         this.enabled = false;
     }
 
-    public void GameOver()
+    public void GameFinish(string message)
     {
         this.enabled = true;
-        GameEndingText.text = "Game Over";
+        GameEndingText.text = message;
     }
 }
