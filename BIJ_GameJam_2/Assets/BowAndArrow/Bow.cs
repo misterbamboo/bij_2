@@ -18,6 +18,9 @@ public class Bow : MonoBehaviour
 
     private IPlayerInput playerInput;
 
+    [SerializeField] public float BoosterTime;
+    private bool useThreeArrows;
+
     void Start()
     {
         playerInput = PlayerInput.Instance;
@@ -30,6 +33,14 @@ public class Bow : MonoBehaviour
         {
             FireArrow();
         }
+
+        if (BoosterTime > 0)
+        {
+            BoosterTime -= Time.deltaTime;
+            var time = TimeSpan.FromSeconds(BoosterTime);
+
+            useThreeArrows = time > TimeSpan.Zero;
+        } 
 
         predictionManager.Predict(arrowPrefab, transform.position, GetArrowForce(transform.forward));
     }
@@ -46,6 +57,14 @@ public class Bow : MonoBehaviour
         lastFire = 0;
         var arrow = Instantiate(arrowPrefab, transform.position, transform.rotation);
         ApplyForce(arrow);
+
+        if (useThreeArrows)
+        {
+            var leftArrow = Instantiate(arrowPrefab, transform.position + Vector3.left, transform.rotation);
+            ApplyForce(leftArrow);
+            var rightArrow = Instantiate(arrowPrefab, transform.position + Vector3.back, transform.rotation);
+            ApplyForce(rightArrow);
+        }
     }
 
     private void ApplyForce(GameObject arrow)

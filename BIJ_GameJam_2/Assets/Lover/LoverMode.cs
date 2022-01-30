@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(LoveMeter))]
 public class LoverMode : MonoBehaviour
@@ -27,17 +28,38 @@ public class LoverMode : MonoBehaviour
 
     private Renderer loverRenderer;
 
+    private float lastDirection;
+
     void Start()
     {
         loverRenderer = GetComponentInParent<Renderer>();
+        lastDirection = Random.Range(0, MathF.PI * 5);
     }
 
     void Update()
     {
         FindLover();
+        MoveNormally();
         FollowHisLove();
         GiveLoveToTarget();
         UpdateLoverApparence();
+    }
+
+
+    private void MoveNormally()
+    {
+        if (targetLover is null)
+        {
+            lastDirection = Random.Range(lastDirection - 0.15f, lastDirection + 0.15f);
+
+            var newPos = charactertransform.position + new Vector3(
+                Mathf.Sin(lastDirection),
+                0,
+                Mathf.Cos(lastDirection)
+            );
+
+            charactertransform.position = Vector3.Lerp(charactertransform.position, newPos, followHisLoveSpeed * Time.deltaTime);
+        }
     }
 
     private void FindLover()
