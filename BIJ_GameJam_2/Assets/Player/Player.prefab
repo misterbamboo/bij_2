@@ -10415,6 +10415,7 @@ MonoBehaviour:
   arrowForce: 400
   arrowUpForce: 300
   fireRatePerSec: 2
+  predictionManager: {fileID: 0}
 --- !u!1 &1283348042944913813
 GameObject:
   m_ObjectHideFlags: 0
