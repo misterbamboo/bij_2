@@ -11,7 +11,7 @@ namespace Assets.Player.Scripts.SpecialItems
         [SerializeField] private GameObject[] SpecialItemsPrefab;
 
         private RarityCollection<SpecialItem> SpecialItems;
-        
+
         private void Awake()
         {
             SpecialItems = new RarityCollection<SpecialItem>(SpecialItemsPrefab.Select(x => x.GetComponent<SpecialItem>()));
@@ -21,23 +21,29 @@ namespace Assets.Player.Scripts.SpecialItems
         {
             StartCoroutine(Spawn(0));
         }
-        
+
         public void InitiateSpawn(int waitTime)
         {
-            StartCoroutine(Spawn(waitTime));
+            if (gameObject.activeInHierarchy)
+            {
+                StartCoroutine(Spawn(waitTime));
+            }
         }
 
         private IEnumerator Spawn(int waitTime)
         {
             yield return new WaitForSeconds(waitTime);
 
-            var item = SpecialItems.PickRandom();
-
-            var specialItem = Instantiate(item, transform.position, transform.rotation, transform);
-
-            if (specialItem != null)
+            if (gameObject.activeInHierarchy)
             {
-                specialItem.Spawner = this;
+                var item = SpecialItems.PickRandom();
+
+                var specialItem = Instantiate(item, transform.position, transform.rotation, transform);
+
+                if (specialItem != null)
+                {
+                    specialItem.Spawner = this;
+                }
             }
         }
     }
