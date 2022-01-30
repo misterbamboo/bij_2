@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LoveMeter : MonoBehaviour
@@ -8,7 +6,7 @@ public class LoveMeter : MonoBehaviour
     public bool IsFull => currentLove >= maxLove;
 
     [SerializeField]
-    private LoverMode loverMode;
+    private Lover lover;
 
     [SerializeField]
     private float maxLove = 100;
@@ -29,7 +27,7 @@ public class LoveMeter : MonoBehaviour
 
         if (IsFull)
         {
-            loverMode.PutInLove();
+            lover.PutInLove();
         }
 
         OnLovePctChanged(GetCurrentLovePct());

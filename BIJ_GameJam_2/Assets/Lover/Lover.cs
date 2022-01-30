@@ -5,13 +5,14 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(LoveMeter))]
-public class LoverMode : MonoBehaviour
+public class Lover : MonoBehaviour
 {
     private bool wasInLove;
-
-    [SerializeField] private Transform charactertransform;
+    public bool IsInLove => isInLove;
 
     [SerializeField] private bool isInLove;
+
+    [SerializeField] private Transform charactertransform;
 
     [SerializeField] private float followHisLoveSpeed;
 
@@ -23,9 +24,9 @@ public class LoverMode : MonoBehaviour
 
     [SerializeField] private Renderer[] loverRenderers;
 
-    private List<LoverMode> closeLovers = new List<LoverMode>();
+    private List<Lover> closeLovers = new List<Lover>();
 
-    private LoverMode targetLover;
+    private Lover targetLover;
 
     private float lastDirection;
 
@@ -42,7 +43,6 @@ public class LoverMode : MonoBehaviour
         GiveLoveToTarget();
         UpdateLoverApparence();
     }
-
 
     private void MoveNormally()
     {
@@ -109,10 +109,10 @@ public class LoverMode : MonoBehaviour
         wasInLove = isInLove;
     }
 
-    private LoverMode FindNewNotInLoveLover()
+    private Lover FindNewNotInLoveLover()
     {
         float closestLoverDistance = float.MaxValue;
-        LoverMode closestLover = null;
+        Lover closestLover = null;
         foreach (var closeLover in closeLovers.Where(l => !l.isInLove))
         {
             var distance = (closeLover.transform.position - charactertransform.position).magnitude;
@@ -155,7 +155,7 @@ public class LoverMode : MonoBehaviour
 
     private void KeepCloseLovers(Collider other)
     {
-        var otherLover = other.GetComponent<LoverMode>();
+        var otherLover = other.GetComponent<Lover>();
         if (otherLover is not null)
         {
             closeLovers.Add(otherLover);
@@ -164,7 +164,7 @@ public class LoverMode : MonoBehaviour
 
     private void ReleaseCloseLovers(Collider other)
     {
-        var otherLover = other.GetComponent<LoverMode>();
+        var otherLover = other.GetComponent<Lover>();
         if (otherLover is not null && closeLovers.Contains(otherLover))
         {
             closeLovers.Remove(otherLover);
