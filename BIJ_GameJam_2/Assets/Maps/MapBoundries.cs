@@ -32,27 +32,14 @@ public class MapBoundries : MonoBehaviour
 
             if (!boudries.Contains(pos))
             {
-                PushBack(goTransform);
+                ContraintToBounds(goTransform);
             }
 
             HardFloorLimit(goTransform);
         }
     }
 
-    private void PushBack(Transform goTransform)
-    {
-        var rb = goTransform.GetComponent<Rigidbody>();
-        if (rb is null)
-        {
-            PushBackTransform(goTransform);
-        }
-        else
-        {
-            PushBackRigidBody(rb);
-        }
-    }
-
-    private void PushBackTransform(Transform goTransform)
+    private void ContraintToBounds(Transform goTransform)
     {
         var pos = goTransform.position;
         if (pos.x < boudries.xMin)
@@ -73,13 +60,6 @@ public class MapBoundries : MonoBehaviour
             pos.z = boudries.yMax;
         }
         goTransform.position = pos;
-    }
-
-    private void PushBackRigidBody(Rigidbody rb)
-    {
-        var direction = Vector3.zero - rb.position;
-        var force = direction * 10;
-        rb.AddForce(force);
     }
 
     private void HardFloorLimit(Transform goTransform)
