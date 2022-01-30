@@ -10,6 +10,8 @@ namespace Assets.Player.Scripts.SpecialItems
     {
         [SerializeField] private GameObject[] SpecialItemsPrefab;
 
+        [SerializeField] private float height = 3.0f;
+
         private RarityCollection<SpecialItem> SpecialItems;
 
         private void Awake()
@@ -20,6 +22,7 @@ namespace Assets.Player.Scripts.SpecialItems
         private void Start()
         {
             StartCoroutine(Spawn(0));
+            FixHeight();
         }
 
         public void InitiateSpawn(int waitTime)
@@ -45,6 +48,34 @@ namespace Assets.Player.Scripts.SpecialItems
                     specialItem.Spawner = this;
                 }
             }
+        }
+
+        private void FixHeight()
+        {
+            var origin = transform.position;
+
+            var targetHight = height;
+
+            var layerMask = LayerMask.GetMask("Floor");
+            if (Physics.Raycast(origin, -Vector3.up, out RaycastHit rayHit, 100f, layerMask /* terrain layer*/))
+            {
+                targetHight = rayHit.point.y + height;
+            }
+
+            var destination = origin;
+            destination.y = targetHight;
+            Debug.DrawLine(origin, destination, Color.green);
+
+            var targetPos = transform.position;
+            targetPos.y = targetHight;
+
+            transform.position = Vector3.Lerp(transform.position, targetPos, 0.5f);
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(transform.position, 1);
         }
     }
 }

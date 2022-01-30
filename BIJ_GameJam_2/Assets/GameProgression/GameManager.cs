@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     public void Success()
     {
         OnGameSuccess();
+        StartCoroutine(AutoRestartGame());
     }
 
     public void TimeOut()

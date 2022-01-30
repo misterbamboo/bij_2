@@ -38,7 +38,6 @@ public class Bow : MonoBehaviour
     {
         transform.LookAt(target);
 
-        // print($"HandleOnAttack - x : {target.x}; y : {target.y}, z : {target.z}");
         bool readyToFire = ReadyToFire();
         if (readyToFire && playerInput.Attack)
         {

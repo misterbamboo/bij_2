@@ -79,7 +79,6 @@ public class PlayerController : MonoBehaviour, IPlayerController
         var layerMask = LayerMask.GetMask("Floor");
         if (Physics.Raycast(origin, -Vector3.up, out RaycastHit rayHit, 100f, layerMask /* terrain layer*/))
         {
-            print(rayHit.collider.name);
             targetHight = rayHit.point.y + height;
         }
 
