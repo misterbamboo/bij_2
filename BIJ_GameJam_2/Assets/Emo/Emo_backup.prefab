@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 8342724369605768724}
   - component: {fileID: 340679115119174848}
   m_Layer: 0
-  m_Name: Emo
+  m_Name: Emo_backup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

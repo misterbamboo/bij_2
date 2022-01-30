@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4054402764453567448}
   - component: {fileID: 9154245850467302408}
   m_Layer: 0
-  m_Name: LoverScanner
+  m_Name: LoverScanner_Backup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

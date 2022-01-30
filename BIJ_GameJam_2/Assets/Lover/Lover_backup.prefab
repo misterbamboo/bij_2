@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3208732533711339257}
   - component: {fileID: 5951759703101640713}
   m_Layer: 6
-  m_Name: Lover
+  m_Name: Lover_backup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
