@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6934774004615970246}
   - component: {fileID: 8395326564625772881}
+  - component: {fileID: 5878046848177217211}
   m_Layer: 0
   m_Name: PeopleGenerator
   m_TagString: Untagged
@@ -49,3 +50,20 @@ MonoBehaviour:
   numberOfPeople: 100
   sideBuffer: 2
   prefab: {fileID: 602262304632173708, guid: 1f89a281b5163b94b858998967110258, type: 3}
+--- !u!114 &5878046848177217211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6563760093600778796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b74c49dd3790557419c90398c670e14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  centerTarget: {fileID: 0}
+  targetSize: {x: 126, y: 126}
+  numberOfEnemy: 10
+  sideBuffer: 2
+  prefab: {fileID: 4503959755982439006, guid: 807e981c91d058543a7c5671236cfd57, type: 3}

@@ -971,6 +971,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5878046848177217211, guid: e93174709c363ad47ad74e3253521b43,
+        type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 4503959755982439006, guid: 807e981c91d058543a7c5671236cfd57,
+        type: 3}
+    - target: {fileID: 5878046848177217211, guid: e93174709c363ad47ad74e3253521b43,
+        type: 3}
+      propertyPath: sideBuffer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5878046848177217211, guid: e93174709c363ad47ad74e3253521b43,
+        type: 3}
+      propertyPath: numberOfEnemy
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6563760093600778796, guid: e93174709c363ad47ad74e3253521b43,
         type: 3}
       propertyPath: m_Name
