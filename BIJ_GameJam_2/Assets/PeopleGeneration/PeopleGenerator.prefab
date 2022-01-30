@@ -46,9 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerTarget: {fileID: 0}
-  targetSize: {x: 200, y: 200}
+  targetSize: {x: 180, y: 180}
   numberOfPeople: 100
   sideBuffer: 2
+  spawnMinHeight: 10
+  spawnMaxHeight: 15
   prefab: {fileID: 602262304632173708, guid: 1f89a281b5163b94b858998967110258, type: 3}
 --- !u!114 &1857040309632046330
 MonoBehaviour:
@@ -66,3 +68,5 @@ MonoBehaviour:
   numberOfEnemy: 6
   sideBuffer: 2
   prefab: {fileID: 2586488816725854159, guid: 3fd4b3af144207a409f6d3dacdc7407b, type: 3}
+  spawnMinHeight: 10
+  spawnMaxHeight: 15

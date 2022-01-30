@@ -10,6 +10,10 @@ public class EnemyGenerator : MonoBehaviour
 
     [SerializeField] GameObject prefab;
 
+    [SerializeField] float spawnMinHeight;
+
+    [SerializeField] float spawnMaxHeight;
+
     void Start()
     {
         if (prefab == null)
@@ -40,7 +44,7 @@ public class EnemyGenerator : MonoBehaviour
         GameManager.Instance.MapBoundries.Register(instance.transform);
     }
 
-    private static Vector3 GenerateRandomPosition(Vector3 center, float xSize, float zSize)
+    private Vector3 GenerateRandomPosition(Vector3 center, float xSize, float zSize)
     {
         var randX = Random.Range(0, xSize);
         var randZ = Random.Range(0, zSize);
@@ -50,8 +54,9 @@ public class EnemyGenerator : MonoBehaviour
 
         var offsetX = -xSize / 2;
         var offsetZ = -zSize / 2;
-
-        return new Vector3(rawX + offsetX, 0, rawZ + offsetZ);
+        
+        var height = Random.Range(spawnMinHeight, spawnMaxHeight);
+        return new Vector3(rawX + offsetX, height, rawZ + offsetZ);
     }
 
     private Vector3 GetCenterPos()

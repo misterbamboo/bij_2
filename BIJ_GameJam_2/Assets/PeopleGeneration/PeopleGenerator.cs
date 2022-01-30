@@ -10,6 +10,10 @@ public class PeopleGenerator : MonoBehaviour
 
     [SerializeField] float sideBuffer;
 
+    [SerializeField] float spawnMinHeight;
+
+    [SerializeField] float spawnMaxHeight;
+
     [SerializeField] GameObject prefab;
 
     void Start()
@@ -21,7 +25,7 @@ public class PeopleGenerator : MonoBehaviour
 
         float sizeX = targetSize.x - sideBuffer;
         float sizeZ = targetSize.y - sideBuffer;
-        
+
         GeneratePeople(GetCenterPos(), sizeX, sizeZ);
     }
 
@@ -47,7 +51,7 @@ public class PeopleGenerator : MonoBehaviour
         GameManager.Instance.MapBoundries.Register(instance.transform);
     }
 
-    private static Vector3 GenerateRandomPosition(Vector3 center, float xSize, float zSize)
+    private Vector3 GenerateRandomPosition(Vector3 center, float xSize, float zSize)
     {
         var randX = UnityEngine.Random.Range(0, xSize);
         var randZ = UnityEngine.Random.Range(0, zSize);
@@ -58,7 +62,8 @@ public class PeopleGenerator : MonoBehaviour
         var offsetX = -xSize / 2;
         var offsetZ = -zSize / 2;
 
-        return new Vector3(rawX + offsetX, 0, rawZ + offsetZ);
+        var height = UnityEngine.Random.Range(spawnMinHeight, spawnMaxHeight);
+        return new Vector3(rawX + offsetX, height, rawZ + offsetZ);
     }
 
     private Vector3 GetCenterPos()

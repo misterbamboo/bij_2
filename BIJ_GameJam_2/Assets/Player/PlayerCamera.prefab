@@ -136,6 +136,7 @@ MonoBehaviour:
   xOffset: -0.5
   zOffset: 0
   angleYOffset: 45
-  angleXOffset: 30
+  angleXOffset: 18
+  invertAngleAxis: 1
   positionLerp: 0.1
   angleLerp: 0.1

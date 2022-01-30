@@ -14,6 +14,8 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField] private float angleYOffset;
     [SerializeField] private float angleXOffset;
 
+    [SerializeField] private bool invertAngleAxis;
+
     [SerializeField, Range(0, 1)]
     private float positionLerp;
 
@@ -72,7 +74,14 @@ public class PlayerCamera : MonoBehaviour
     {
         if (mouseDown)
         {
-            currentDiff = currentDrag - Input.mousePosition.x;
+            if (invertAngleAxis)
+            {
+                currentDiff = Input.mousePosition.x - currentDrag;
+            }
+            else
+            {
+                currentDiff = currentDrag - Input.mousePosition.x;
+            }
             print(currentDiff);
         }
     }

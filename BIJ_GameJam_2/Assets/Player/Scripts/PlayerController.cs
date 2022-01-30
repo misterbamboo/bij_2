@@ -16,11 +16,14 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
     [SerializeField] private float speed;
 
+    [SerializeField] private Transform hightPoint;
+
     private IPlayerInput playerInput;
 
     private Rigidbody rb;
 
     private Vector3 lastPos;
+    private float targetHight;
 
     private void Awake()
     {
@@ -41,7 +44,11 @@ public class PlayerController : MonoBehaviour, IPlayerController
     void Update()
     {
         var direction = transform.position - lastPos;
-        transform.LookAt(transform.position + direction);
+
+        var rotation = Quaternion.LookRotation(direction);
+        var wantedRotation = Quaternion.RotateTowards(transform.rotation, rotation, 10);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, wantedRotation, 0.3f); ;
         lastPos = transform.position;
     }
 
@@ -65,8 +72,24 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
     private void FixHeight()
     {
-        var pos = rb.transform.position;
-        pos.y = height;
-        rb.transform.position = pos;
+        var origin = hightPoint.position;
+
+        targetHight = height;
+
+        var layerMask = LayerMask.GetMask("Floor");
+        if (Physics.Raycast(origin, -Vector3.up, out RaycastHit rayHit, 100f, layerMask /* terrain layer*/))
+        {
+            print(rayHit.collider.name);
+            targetHight = rayHit.point.y + height;
+        }
+
+        var destination = origin;
+        destination.y = targetHight;
+        Debug.DrawLine(origin, destination, Color.green);
+
+        var targetPos = transform.position;
+        targetPos.y = targetHight;
+
+        transform.position = Vector3.Lerp(transform.position, targetPos, 0.5f);
     }
 }
