@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/PredictionManager/Prediction.unity
-    guid: 5c91caa3cfda2e4419f939377de16616
+    path: Assets/Scenes/Menu.unity
+    guid: eb56a96a949d5ba429acab43aeadc092
+  - enabled: 1
+    path: Assets/Scenes/LogixShotExpScene.unity
+    guid: 2bd4573c86aabf349a4eb416176b0aa1
   m_configObjects: {}
