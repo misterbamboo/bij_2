@@ -50,6 +50,6 @@ public class GameManager : MonoBehaviour
     IEnumerator AutoRestartGame()
     {
         yield return new WaitForSeconds(TimeBeforeRestart);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(0);
     }
 }

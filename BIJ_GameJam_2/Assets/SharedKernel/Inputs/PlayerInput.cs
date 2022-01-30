@@ -10,6 +10,8 @@ namespace Assets.SharedKernel.Inputs
         public float Horizontal { get; }
 
         public bool Attack { get; }
+
+        public bool Quit { get; }
     }
 
     public class PlayerInput : IPlayerInput
@@ -20,6 +22,8 @@ namespace Assets.SharedKernel.Inputs
         private PlayerInput()
         {
         }
+
+        public bool Quit => Input.GetButton("Cancel");
 
         public float Vertical => Input.GetAxis("Vertical");
 
