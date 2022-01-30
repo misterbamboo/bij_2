@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace Assets.Player.Scripts.SpecialItems.Items
 {
     public class ThreeArrowsItem : SpecialItem
     {
+        [SerializeField] public GameObject textPrefab;
+
         public override int Rarity => 5;
         public override int RespawnDelay => 0;
 
@@ -15,6 +18,11 @@ namespace Assets.Player.Scripts.SpecialItems.Items
 
         [SerializeField] private Collider collider;
         [SerializeField] private Renderer renderer;
+        
+        void Start()
+        {
+            textPrefab = GameObject.FindWithTag("ThreeArrowsItem");
+        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -33,10 +41,15 @@ namespace Assets.Player.Scripts.SpecialItems.Items
             collider.enabled = false;
             renderer.enabled = false;
         }
-        
+
         private IEnumerator CheckSpecialItemTime()
         {
-            yield return new WaitForSeconds(BoosterTime);
+            var timeTextDelay = 2.0f;
+            var textMeshPro = textPrefab.GetComponent<TextMeshProUGUI>();
+            textMeshPro.text = "+3 arrows";
+            yield return new WaitForSeconds(timeTextDelay);
+            textMeshPro.text = "";
+            yield return new WaitForSeconds(BoosterTime - timeTextDelay);
 
             bowInstance.UseThreeArrows = false;
             Destroy(gameObject);
