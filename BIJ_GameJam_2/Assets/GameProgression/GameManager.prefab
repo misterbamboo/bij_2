@@ -968,7 +968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapBoundries: {fileID: 7161792449560756667}
   TimeBeforeRestart: 3
-  mapSize: {x: 120, y: 120}
+  mapSize: {x: 100, y: 100}
 --- !u!114 &7161792449560756667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -993,7 +993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3e956439175554fb1a2b7980acf41c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndCounter: 5
   ProgressBar: {fileID: 4288457465946166804}
   Percentage: {fileID: 4376322799377539201}
 --- !u!114 &6986668287896562132

@@ -810,7 +810,7 @@ PrefabInstance:
     - target: {fileID: 8008901387383282672, guid: 19c6781e59932fe4faa8cbecf8a8823e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 147.22523
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 8008901387383282672, guid: 19c6781e59932fe4faa8cbecf8a8823e,
         type: 3}
@@ -862,15 +862,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8008901387383282686, guid: 19c6781e59932fe4faa8cbecf8a8823e,
+        type: 3}
+      propertyPath: StartTime
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 8008901387383282687, guid: 19c6781e59932fe4faa8cbecf8a8823e,
         type: 3}
       propertyPath: mapSize.x
-      value: 200
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 8008901387383282687, guid: 19c6781e59932fe4faa8cbecf8a8823e,
         type: 3}
       propertyPath: mapSize.y
-      value: 200
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8008901387383282687, guid: 19c6781e59932fe4faa8cbecf8a8823e,
+        type: 3}
+      propertyPath: TimeBeforeRestart
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8580863273173721922, guid: 19c6781e59932fe4faa8cbecf8a8823e,
         type: 3}
@@ -1115,6 +1125,11 @@ PrefabInstance:
       propertyPath: centerTarget
       value: 
       objectReference: {fileID: 861534062}
+    - target: {fileID: 8395326564625772881, guid: e93174709c363ad47ad74e3253521b43,
+        type: 3}
+      propertyPath: numberOfPeople
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e93174709c363ad47ad74e3253521b43, type: 3}
 --- !u!1001 &9063678800458737845
