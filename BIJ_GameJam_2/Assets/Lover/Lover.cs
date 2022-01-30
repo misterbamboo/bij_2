@@ -70,8 +70,10 @@ public class Lover : MonoBehaviour
 
     public void PutInLove()
     {
+        if (IsInLove) return;
+
         isInLove = true;
-        GameManager.Instance.IncrementGameCounter(1);
+        GameManager.Instance.GameCounterChanged();
     }
 
     private bool StopFollowIfAlreadyInLove()
@@ -128,7 +130,7 @@ public class Lover : MonoBehaviour
             if (loveMeter.IsFull)
             {
                 targetLover.isInLove = true;
-                GameManager.Instance.IncrementGameCounter(1);
+                GameManager.Instance.GameCounterChanged();
             }
         }
     }

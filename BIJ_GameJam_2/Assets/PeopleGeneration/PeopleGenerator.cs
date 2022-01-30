@@ -23,6 +23,8 @@ public class PeopleGenerator : MonoBehaviour
             throw new System.Exception("PeopleGenerator need a prefab to generate");
         }
 
+        GameCounter.Instance.SetCounter(numberOfPeople);
+
         float sizeX = targetSize.x - sideBuffer;
         float sizeZ = targetSize.y - sideBuffer;
 
