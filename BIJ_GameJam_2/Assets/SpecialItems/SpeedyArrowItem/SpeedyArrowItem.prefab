@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 0}
+  textPrefab: {fileID: 8991746931388303778, guid: 028038f1c5eb4bf43966f43b8cfdb1e8,
+    type: 3}
   BoosterTime: 0
   collider: {fileID: 3304095068061113442}
   renderer: {fileID: 6489178807595507030}
