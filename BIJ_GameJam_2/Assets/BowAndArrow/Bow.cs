@@ -75,8 +75,6 @@ public class Bow : MonoBehaviour
             var rightArrow = Instantiate(arrowPrefab, transform.position + Vector3.back, transform.rotation);
             ApplyForce(rightArrow, target);
         }
-
-        // animator.SetBool("Shoot", false);
     }
 
     private void ApplyForce(GameObject arrow, Vector3 target)
