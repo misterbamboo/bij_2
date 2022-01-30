@@ -12,8 +12,6 @@ public class Bow : MonoBehaviour
 
     [SerializeField] float fireRatePerSec;
 
-    [SerializeField] PredictionManager predictionManager;
-
     private float lastFire;
 
     private IPlayerInput playerInput;
@@ -33,8 +31,6 @@ public class Bow : MonoBehaviour
         {
             FireArrow();
         }
-        
-        predictionManager.Predict(arrowPrefab, transform.position, GetArrowForce(transform.forward));
     }
 
     private bool ReadyToFire()
