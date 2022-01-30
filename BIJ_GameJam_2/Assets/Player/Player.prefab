@@ -117,7 +117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1283348041409105029
 Transform:
   m_ObjectHideFlags: 0
@@ -5199,7 +5199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1283348042010666850
 Transform:
   m_ObjectHideFlags: 0
@@ -9875,7 +9875,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: ec3d87f6018186245a48bd82391500cb, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10416,6 +10415,7 @@ MonoBehaviour:
   arrowUpForce: 300
   fireRatePerSec: 2
   predictionManager: {fileID: 0}
+  BoosterTime: 0
 --- !u!1 &1283348042944913813
 GameObject:
   m_ObjectHideFlags: 0
@@ -10912,7 +10912,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1283348043310869814
 Transform:
   m_ObjectHideFlags: 0
@@ -15651,7 +15651,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 392af32d15c178f43afa49793eb37677, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

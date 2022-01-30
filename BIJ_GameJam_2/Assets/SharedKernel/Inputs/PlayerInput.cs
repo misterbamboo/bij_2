@@ -25,6 +25,6 @@ namespace Assets.SharedKernel.Inputs
 
         public float Horizontal => Input.GetAxis("Horizontal");
 
-        public bool Attack => Input.GetAxis("Jump") > 0;
+        public bool Attack => Input.GetButton("Fire1");
     }
 }

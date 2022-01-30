@@ -82,7 +82,7 @@ public class PredictionManager : MonoBehaviour
             }
 
             dummy.transform.position = currentPosition;
-            dummy.GetComponent<Rigidbody>().AddForce(force);
+            dummy.GetComponent<Rigidbody>().velocity = force;
             lineRenderer.positionCount = 0;
             lineRenderer.positionCount = maxIterations;
 
