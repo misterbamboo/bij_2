@@ -761,7 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef0fa92721da0b345a9585b71e09fc3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loverMode: {fileID: 0}
+  lover: {fileID: 0}
   maxLove: 100
 --- !u!54 &1597603786
 Rigidbody:
@@ -955,7 +955,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1950918
+  m_Name: pb_Mesh-684148
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1262,7 +1262,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1950932
+  m_Name: pb_Mesh-684160
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
