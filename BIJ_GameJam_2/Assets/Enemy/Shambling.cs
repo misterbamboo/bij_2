@@ -63,7 +63,7 @@ public class Shambling : MonoBehaviour
         while (_directionTimerEnabled)
         {
             Direction = ChooseNextDirection();
-            transform.LookAt(transform.position + Direction);
+            transform.LookAt(transform.position - Direction);
 
             yield return new WaitForSeconds(Random.Range(1.0f, 5.0f));
         }
