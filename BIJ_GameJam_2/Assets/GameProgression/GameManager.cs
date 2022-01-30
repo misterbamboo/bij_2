@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,25 +7,30 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public MapBoundries MapBoundries => mapBoundries;
+    [SerializeField] private MapBoundries mapBoundries;
+
     [SerializeField] float TimeBeforeRestart = 10;
 
+    [SerializeField] private Vector2 mapSize;
+    public float MapSizeX => mapSize.x;
+    public float MapSizeZ => mapSize.y;
+
     public event Action OnGameOver = delegate { };
+    public event Action OnGameSuccess = delegate { };
     public event Action OnGameStart = delegate { };
+    public event Action<int> OnGameCounterIncrement = delegate { };
 
     void Awake()
     {
         Instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    public void IncrementGameCounter(int by) => OnGameCounterIncrement(by);
 
-    // Update is called once per frame
-    void Update()
+    public void Success()
     {
-
+        OnGameSuccess();
     }
 
     public void TimeOut()

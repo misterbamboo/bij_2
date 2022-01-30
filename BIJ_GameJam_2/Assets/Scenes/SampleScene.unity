@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27170
+  m_Name: pb_Mesh27942
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1004,6 +1004,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8008901387383282687, guid: 19c6781e59932fe4faa8cbecf8a8823e,
+        type: 3}
+      propertyPath: mapSize.x
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 8008901387383282687, guid: 19c6781e59932fe4faa8cbecf8a8823e,
+        type: 3}
+      propertyPath: mapSize.y
+      value: 120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19c6781e59932fe4faa8cbecf8a8823e, type: 3}
 --- !u!1001 &2010325585
@@ -1082,6 +1092,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1857040309632046330, guid: e93174709c363ad47ad74e3253521b43,
+        type: 3}
+      propertyPath: centerTarget
+      value: 
+      objectReference: {fileID: 605837749}
     - target: {fileID: 5878046848177217211, guid: e93174709c363ad47ad74e3253521b43,
         type: 3}
       propertyPath: prefab

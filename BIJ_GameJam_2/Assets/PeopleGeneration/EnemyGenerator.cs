@@ -3,7 +3,6 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
     [SerializeField] Transform centerTarget;
-    [SerializeField] Vector2 targetSize;
 
     [SerializeField] int numberOfEnemy;
 
@@ -18,8 +17,8 @@ public class EnemyGenerator : MonoBehaviour
             throw new System.Exception("PeopleGenerator need a prefab to generate");
         }
 
-        float sizeX = targetSize.x - sideBuffer;
-        float sizeZ = targetSize.y - sideBuffer;
+        float sizeX = GameManager.Instance.MapSizeX - sideBuffer;
+        float sizeZ = GameManager.Instance.MapSizeZ - sideBuffer;
 
         GeneratePeople(GetCenterPos(), sizeX, sizeZ);
     }
@@ -36,7 +35,9 @@ public class EnemyGenerator : MonoBehaviour
     private void GenerateOnePerson(Vector3 center, float xSize, float zSize, bool putInLove)
     {
         var randomPos = GenerateRandomPosition(center, xSize, zSize);
-        Instantiate(prefab, randomPos, Quaternion.identity);
+        var instance = Instantiate(prefab, randomPos, Quaternion.identity);
+
+        GameManager.Instance.MapBoundries.Register(instance.transform);
     }
 
     private static Vector3 GenerateRandomPosition(Vector3 center, float xSize, float zSize)

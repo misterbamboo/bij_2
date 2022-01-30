@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
         FixHeight();
 
         lastPos = transform.position + Vector3.forward;
+
+        GameManager.Instance.MapBoundries.Register(transform);
     }
 
     void Update()

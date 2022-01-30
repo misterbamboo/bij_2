@@ -1,18 +1,18 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(LoveMeter))]
-public class LoverMode : MonoBehaviour
+public class Lover : MonoBehaviour
 {
     private bool wasInLove;
-
-    [SerializeField] private Transform charactertransform;
+    public bool IsInLove => isInLove;
 
     [SerializeField] private bool isInLove;
+
+    [SerializeField] private Transform charactertransform;
 
     [SerializeField] private float followHisLoveSpeed;
 
@@ -22,17 +22,16 @@ public class LoverMode : MonoBehaviour
 
     [SerializeField] private Material noneLoverMaterial;
 
-    private List<LoverMode> closeLovers = new List<LoverMode>();
+    [SerializeField] private Renderer[] loverRenderers;
 
-    private LoverMode targetLover;
+    private List<Lover> closeLovers = new List<Lover>();
 
-    private Renderer loverRenderer;
+    private Lover targetLover;
 
     private float lastDirection;
 
     void Start()
     {
-        loverRenderer = GetComponentInParent<Renderer>();
         lastDirection = Random.Range(0, MathF.PI * 5);
     }
 
@@ -44,7 +43,6 @@ public class LoverMode : MonoBehaviour
         GiveLoveToTarget();
         UpdateLoverApparence();
     }
-
 
     private void MoveNormally()
     {
@@ -85,6 +83,7 @@ public class LoverMode : MonoBehaviour
     public void PutInLove()
     {
         isInLove = true;
+        GameManager.Instance.IncrementGameCounter(1);
     }
 
     private bool StopFollowIfAlreadyInLove()
@@ -103,15 +102,18 @@ public class LoverMode : MonoBehaviour
     {
         if (isInLove != wasInLove)
         {
-            loverRenderer.material = isInLove ? loverMaterial : noneLoverMaterial;
+            foreach (var loverRenderer in loverRenderers)
+            {
+                loverRenderer.material = isInLove ? loverMaterial : noneLoverMaterial;
+            }
         }
         wasInLove = isInLove;
     }
 
-    private LoverMode FindNewNotInLoveLover()
+    private Lover FindNewNotInLoveLover()
     {
         float closestLoverDistance = float.MaxValue;
-        LoverMode closestLover = null;
+        Lover closestLover = null;
         foreach (var closeLover in closeLovers.Where(l => !l.isInLove))
         {
             var distance = (closeLover.transform.position - charactertransform.position).magnitude;
@@ -138,6 +140,7 @@ public class LoverMode : MonoBehaviour
             if (loveMeter.IsFull)
             {
                 targetLover.isInLove = true;
+                GameManager.Instance.IncrementGameCounter(1);
             }
         }
     }
@@ -154,7 +157,7 @@ public class LoverMode : MonoBehaviour
 
     private void KeepCloseLovers(Collider other)
     {
-        var otherLover = other.GetComponent<LoverMode>();
+        var otherLover = other.GetComponent<Lover>();
         if (otherLover is not null)
         {
             closeLovers.Add(otherLover);
@@ -163,7 +166,7 @@ public class LoverMode : MonoBehaviour
 
     private void ReleaseCloseLovers(Collider other)
     {
-        var otherLover = other.GetComponent<LoverMode>();
+        var otherLover = other.GetComponent<Lover>();
         if (otherLover is not null && closeLovers.Contains(otherLover))
         {
             closeLovers.Remove(otherLover);
