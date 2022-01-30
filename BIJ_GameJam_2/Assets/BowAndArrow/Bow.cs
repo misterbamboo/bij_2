@@ -6,10 +6,6 @@ public class Bow : MonoBehaviour
 {
     [SerializeField] GameObject arrowPrefab;
 
-    [SerializeField] float arrowForce;
-
-    [SerializeField] float arrowUpForce;
-
     [SerializeField] float fireRatePerSec;
 
     [SerializeField] PredictionManager predictionManager;
@@ -19,9 +15,8 @@ public class Bow : MonoBehaviour
     private float lastFire;
 
     private IPlayerInput playerInput;
-
-    [SerializeField] public float BoosterTime;
-    private bool useThreeArrows;
+    
+    public bool UseThreeArrows;
 
     public bool UseSpeedyArrows;
 
@@ -29,15 +24,11 @@ public class Bow : MonoBehaviour
 
     private void Awake()
     {
+        playerInput = PlayerInput.Instance;
         inputManager = FindObjectOfType<InputManager>();
         inputManager.OnPlayerAttack += HandleOnAttack;
     }
         
-    void Start()
-    {
-        playerInput = PlayerInput.Instance;
-    }
-
     private void HandleOnAttack(Vector3 target)
     {
         transform.LookAt(target);
@@ -48,16 +39,7 @@ public class Bow : MonoBehaviour
         {
             FireArrow(target);
         }
-
-        if (BoosterTime > 0)
-        {
-            BoosterTime -= Time.deltaTime;
-            var time = TimeSpan.FromSeconds(BoosterTime);
-
-            useThreeArrows = time > TimeSpan.Zero;
-        }
-        
-        // predictionManager.Predict(arrowPrefab, transform.position, GetArrowForce(transform.forward));
+               
         predictionManager.Predict(arrowPrefab, transform.position, CalcBallisticVelocityVector(transform.position, target, shootAngle));
     }
 
@@ -87,25 +69,9 @@ public class Bow : MonoBehaviour
 
     private void ApplyForce(GameObject arrow, Vector3 target)
     {
-        var arrowRb = arrow.GetComponent<Rigidbody>();
-        // arrowRb.AddForce(GetArrowForce(arrow.transform.forward));      
+        var arrowRb = arrow.GetComponent<Rigidbody>();            
         var velocity = CalcBallisticVelocityVector(transform.position, target, shootAngle);
-
-        try
-        {
-            arrowRb.velocity = velocity;
-        }
-        catch (Exception ex)
-        {
-            print(ex.Message);
-        }
-    }
-
-    private Vector3 GetArrowForce(Vector3 forwardVector)
-    {
-        var upForce = new Vector3(0, arrowUpForce, 0);
-        var frontForce = forwardVector * arrowForce;
-        return upForce + frontForce;
+        arrowRb.velocity = velocity;
     }
 
     Vector3 CalcBallisticVelocityVector(Vector3 source, Vector3 target, float angle)

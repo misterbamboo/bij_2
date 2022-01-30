@@ -47,4 +47,4 @@ MonoBehaviour:
   SpecialItemsPrefab:
   - {fileID: 2387626001391658521, guid: 0eb36e9ea8c751f4aa5d7e577749c099, type: 3}
   - {fileID: 6869072117181361572, guid: eb56e53eb248494459e5169c2b4bad02, type: 3}
-  - {fileID: 7229334052787951746, guid: bfe5b2356acc209469565026f9b245f0, type: 3}
+  - {fileID: 7229334052787951746, guid: b88c07836c343d4499fceacfc1b5b80b, type: 3}

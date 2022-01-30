@@ -10311,9 +10311,10 @@ GameObject:
   - component: {fileID: 1283348042906511379}
   - component: {fileID: 1283348042906511378}
   - component: {fileID: 1283348042906511377}
+  - component: {fileID: 8138591948832854220}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10366,6 +10367,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   height: 3
   speed: 500
+--- !u!65 &8138591948832854220
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283348042906511376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1283348042914764061
 GameObject:
   m_ObjectHideFlags: 0
@@ -10412,8 +10426,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 7402473282052663969, guid: d870d6a67c9d5f34d8ceaecbdb985b37,
     type: 3}
-  arrowForce: 400
-  arrowUpForce: 300
   fireRatePerSec: 2
   predictionManager: {fileID: 0}
   UseThreeArrows: 0

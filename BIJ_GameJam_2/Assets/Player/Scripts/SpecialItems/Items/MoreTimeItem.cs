@@ -9,6 +9,11 @@ namespace Assets.Player.Scripts.SpecialItems.Items
 
         private void OnTriggerEnter(Collider other)
         {
+            if (other.tag != "Player")
+            {
+                return;
+            }
+
             CountdownTimer.Instance.StartTime += Delay;
 
             Destroy(gameObject);

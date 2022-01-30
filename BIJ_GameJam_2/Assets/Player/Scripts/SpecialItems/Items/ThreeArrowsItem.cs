@@ -18,6 +18,11 @@ namespace Assets.Player.Scripts.SpecialItems.Items
 
         private void OnTriggerEnter(Collider other)
         {
+            if (other.tag != "Player")
+            {
+                return;
+            }
+
             BoosterTime += Delay;
 
             bowInstance = other.GetComponentInChildren<Bow>();

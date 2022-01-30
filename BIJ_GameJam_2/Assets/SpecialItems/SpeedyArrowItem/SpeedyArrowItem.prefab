@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3432178564800568006}
   - component: {fileID: 6489178807595507030}
   - component: {fileID: 3304095068061113442}
-  - component: {fileID: 1531703792060507464}
+  - component: {fileID: 6550644337933180177}
   m_Layer: 0
   m_Name: SpeedyArrowItem
   m_TagString: Untagged
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 11b5c2f3d51f4c642bc00501e3d69c37, type: 2}
+  - {fileID: 2100000, guid: 5dcc03c1d1ca76b4ab6efe047d8b51d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,7 +98,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.6530598
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1531703792060507464
+--- !u!114 &6550644337933180177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7229334052787951746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d25ad25e0640a364eb72380e226b41d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ea95abafceb4474eb3a8749d6a0db29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 0}
