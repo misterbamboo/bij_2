@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using Assets.Player.Scripts.SpecialItems.Items;
 using Assets.SharedKernel.Models;
 using UnityEngine;
@@ -18,15 +19,26 @@ namespace Assets.Player.Scripts.SpecialItems
 
         private void Start()
         {
-            print("I have spawned!!!!");
-            Spawn();
+            StartCoroutine(Spawn(0));
+        }
+        
+        public void InitiateSpawn()
+        {
+            StartCoroutine(Spawn(10));
         }
 
-        private void Spawn()
+        private IEnumerator Spawn(int waitTime)
         {
+            yield return new WaitForSeconds(waitTime);
+
             var item = SpecialItems.PickRandom();
 
-            var arrow = Instantiate(item, transform.position, transform.rotation, transform);
+            var specialItem = Instantiate(item, transform.position, transform.rotation, transform);
+
+            if (specialItem != null)
+            {
+                specialItem.Spawner = this;
+            }
         }
     }
 }
