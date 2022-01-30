@@ -1830,6 +1830,16 @@ PrefabInstance:
       propertyPath: centerTarget
       value: 
       objectReference: {fileID: 861534062}
+    - target: {fileID: 8395326564625772881, guid: e93174709c363ad47ad74e3253521b43,
+        type: 3}
+      propertyPath: targetSize.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395326564625772881, guid: e93174709c363ad47ad74e3253521b43,
+        type: 3}
+      propertyPath: targetSize.y
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e93174709c363ad47ad74e3253521b43, type: 3}
 --- !u!1001 &9063678800458737845
