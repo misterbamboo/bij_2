@@ -34,6 +34,8 @@ public class MapBoundries : MonoBehaviour
             {
                 PushBack(goTransform);
             }
+
+            HardFloorLimit(goTransform);
         }
     }
 
@@ -78,5 +80,15 @@ public class MapBoundries : MonoBehaviour
         var direction = Vector3.zero - rb.position;
         var force = direction * 10;
         rb.AddForce(force);
+    }
+
+    private void HardFloorLimit(Transform goTransform)
+    {
+        if (goTransform.position.y < 0)
+        {
+            var pos = goTransform.position;
+            pos.y = 0;
+            goTransform.position = pos;
+        }
     }
 }

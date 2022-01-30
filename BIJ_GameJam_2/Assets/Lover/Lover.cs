@@ -27,6 +27,7 @@ public class Lover : MonoBehaviour
     private List<Lover> closeLovers = new List<Lover>();
 
     private Lover targetLover;
+    public bool HaveLoverInTarget => targetLover != null;
 
     private float lastDirection;
 
@@ -37,27 +38,14 @@ public class Lover : MonoBehaviour
 
     void Update()
     {
-        FindLover();
-        MoveNormally();
-        FollowHisLove();
-        GiveLoveToTarget();
-        UpdateLoverApparence();
-    }
-
-    private void MoveNormally()
-    {
-        if (targetLover is null)
+        if (isInLove)
         {
-            lastDirection = Random.Range(lastDirection - 0.15f, lastDirection + 0.15f);
-
-            var newPos = charactertransform.position + new Vector3(
-                Mathf.Sin(lastDirection),
-                0,
-                Mathf.Cos(lastDirection)
-            );
-
-            charactertransform.position = Vector3.Lerp(charactertransform.position, newPos, followHisLoveSpeed * Time.deltaTime);
+            FindLover();
+            FollowHisLove();
+            GiveLoveToTarget();
         }
+
+        UpdateLoverApparence();
     }
 
     private void FindLover()
