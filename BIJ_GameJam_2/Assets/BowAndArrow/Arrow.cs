@@ -12,33 +12,41 @@ namespace Assets.BowAndArrow
     public class Arrow : MonoBehaviour
     {
         [SerializeField]
-        private float Duration = 5.0f;
+        private float Duration = 10.0f;
 
         [SerializeField]
         private float AmountOfLove = 0.0f;
 
+        [SerializeField]
+        private GameObject prefabParticleExplosion;
+
         private void Awake()
         {
-            StartCoroutine(DestroyTimer());
+            StartCoroutine(DestroyTimer(gameObject, Duration));
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer != LayerMask.NameToLayer("Lover"))
+            if (other.gameObject.layer != LayerMask.NameToLayer("Lover") && other.gameObject.layer != LayerMask.NameToLayer("Floor"))
             {
                 return;
             }
 
-            GameManager.Instance.GameEvent( GameProgression.GameEvents.LoverHitByArrow);
+            GameManager.Instance.GameEvent(GameProgression.GameEvents.LoverHitByArrow);
+       
+            var newParticle = Instantiate(prefabParticleExplosion);
+            newParticle.gameObject.transform.position = gameObject.transform.position;
+
+            StartCoroutine(DestroyTimer(newParticle.gameObject, Duration / 2));
 
             var loverMeter = other.GetComponentInChildren<LoveMeter>();
-            loverMeter.ModifyLove(AmountOfLove);
+            loverMeter?.ModifyLove(AmountOfLove);
         }
 
-        private IEnumerator DestroyTimer()
+        private IEnumerator DestroyTimer(GameObject _gameObject, float duration)
         {
-            yield return new WaitForSeconds(Duration);
-            Destroy(gameObject);
+            yield return new WaitForSeconds(duration);
+            Destroy(_gameObject);
         }
     }
 }
