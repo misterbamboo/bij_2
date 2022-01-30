@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PeopleGenerator : MonoBehaviour
@@ -42,12 +43,14 @@ public class PeopleGenerator : MonoBehaviour
         {
             instance.GetComponentInChildren<Lover>().PutInLove();
         }
+
+        GameManager.Instance.MapBoundries.Register(instance.transform);
     }
 
     private static Vector3 GenerateRandomPosition(Vector3 center, float xSize, float zSize)
     {
-        var randX = Random.Range(0, xSize);
-        var randZ = Random.Range(0, zSize);
+        var randX = UnityEngine.Random.Range(0, xSize);
+        var randZ = UnityEngine.Random.Range(0, zSize);
 
         var rawX = center.x + randX;
         var rawZ = center.z + randZ;

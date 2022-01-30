@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +7,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public MapBoundries MapBoundries => mapBoundries;
+    [SerializeField] private MapBoundries mapBoundries;
+
     [SerializeField] float TimeBeforeRestart = 10;
+
+    [SerializeField] private Vector2 mapSize;
+    public float MapSizeX => mapSize.x;
+    public float MapSizeZ => mapSize.y;
 
     public event Action OnGameOver = delegate { };
     public event Action OnGameStart = delegate { };
