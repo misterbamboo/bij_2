@@ -988,60 +988,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8001741641530639958, guid: b0544584024aacb47a0b42c7e0924535,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.atime1
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: -8001741641530639958, guid: b0544584024aacb47a0b42c7e0924535,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.ctime1
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: -8001741641530639958, guid: b0544584024aacb47a0b42c7e0924535,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8001741641530639958, guid: b0544584024aacb47a0b42c7e0924535,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8001741641530639958, guid: b0544584024aacb47a0b42c7e0924535,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8001741641530639958, guid: b0544584024aacb47a0b42c7e0924535,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8001741641530639958, guid: b0544584024aacb47a0b42c7e0924535,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8001741641530639958, guid: b0544584024aacb47a0b42c7e0924535,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8001741641530639958, guid: b0544584024aacb47a0b42c7e0924535,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8001741641530639958, guid: b0544584024aacb47a0b42c7e0924535,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.1000006
-      objectReference: {fileID: 0}
     - target: {fileID: 277569776507321145, guid: b0544584024aacb47a0b42c7e0924535,
         type: 3}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 277569776507321145, guid: b0544584024aacb47a0b42c7e0924535,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277569776507321145, guid: b0544584024aacb47a0b42c7e0924535,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277569776507321145, guid: b0544584024aacb47a0b42c7e0924535,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277569776507321145, guid: b0544584024aacb47a0b42c7e0924535,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 277569776507321145, guid: b0544584024aacb47a0b42c7e0924535,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277569776507321145, guid: b0544584024aacb47a0b42c7e0924535,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277569776507321145, guid: b0544584024aacb47a0b42c7e0924535,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 277569776507321145, guid: b0544584024aacb47a0b42c7e0924535,
         type: 3}
