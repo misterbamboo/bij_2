@@ -952,7 +952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creditPanel: {fileID: 2054718280}
-  creditButton: {fileID: 1362086887}
+  textButton: {fileID: 736995700}
 --- !u!1 &1190944446
 GameObject:
   m_ObjectHideFlags: 0
