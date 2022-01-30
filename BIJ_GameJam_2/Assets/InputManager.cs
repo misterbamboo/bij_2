@@ -13,15 +13,12 @@ public class InputManager : MonoBehaviour
     private void Start()
     {
         playerInput = PlayerInput.Instance;
-    } 
+    }
 
     private void Update()
     {
-        if (playerInput.Attack)
-        {
-            var pos = GetMouseRaycastPos();
-            OnPlayerAttack(pos);
-        }
+        var pos = GetMouseRaycastPos();
+        OnPlayerAttack(pos);
     }
 
     Vector3 GetMouseRaycastPos()
