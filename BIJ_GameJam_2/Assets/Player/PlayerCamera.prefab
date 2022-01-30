@@ -135,3 +135,7 @@ MonoBehaviour:
   yOffset: 10
   xOffset: -0.5
   zOffset: 0
+  angleYOffset: 45
+  angleXOffset: 30
+  positionLerp: 0.1
+  angleLerp: 0.1

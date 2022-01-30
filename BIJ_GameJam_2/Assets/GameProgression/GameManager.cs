@@ -1,6 +1,7 @@
 using Assets.GameProgression;
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
     public event Action OnGameOver = delegate { };
     public event Action OnGameSuccess = delegate { };
     public event Action OnGameStart = delegate { };
-    public event Action<int> OnGameCounterIncrement = delegate { };
+    public event Action<int> OnGameCounterChanged = delegate { };
 
     public event Action<GameEvents> OnGameEvent;
 
@@ -34,7 +35,11 @@ public class GameManager : MonoBehaviour
         OnGameEvent?.Invoke(gameEvent);
     }
 
-    public void IncrementGameCounter(int by) => OnGameCounterIncrement(by);
+    public void GameCounterChanged()
+    {
+        Lover[] lovers = GameObject.FindObjectsOfType<Lover>();
+        OnGameCounterChanged(lovers.Count(x => x.IsInLove));
+    }
 
     public void Success()
     {
