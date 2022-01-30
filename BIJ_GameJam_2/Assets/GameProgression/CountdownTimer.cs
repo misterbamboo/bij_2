@@ -19,7 +19,8 @@ public class CountdownTimer : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance.OnGameOver += GameOver;
+        GameManager.Instance.OnGameOver += GameFinish;
+        GameManager.Instance.OnGameSuccess += GameFinish;
         GameManager.Instance.OnGameStart += GameStart;
     }
 
@@ -45,7 +46,7 @@ public class CountdownTimer : MonoBehaviour
         this._stopTimer = false;
     }
 
-    public void GameOver()
+    public void GameFinish()
     {
         this.enabled = false;
         this.TimerText.enabled = false;

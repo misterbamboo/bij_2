@@ -1306,6 +1306,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2836658961979985420}
     m_Modifications:
+    - target: {fileID: 871812811417466708, guid: ff3a7e1571c4c1e40bb19eb4a7982aba,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 871812811417466710, guid: ff3a7e1571c4c1e40bb19eb4a7982aba,
         type: 3}
       propertyPath: loveMeter
