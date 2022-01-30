@@ -684,7 +684,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4783fde4e6213b4faffd1c5d447a537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapBoundries: {fileID: 7161792449560756667}
   TimeBeforeRestart: 3
+  mapSize: {x: 120, y: 120}
 --- !u!114 &7161792449560756667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,11 +696,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8008901387383282673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 252e836544def1c4d96ce7b76ac6d3b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 18a778c4e1846794bbab35b5b9e262e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndCounter: 90
-  CounterText: {fileID: 2937750331910994478}
 --- !u!1 &8031304937793637426
 GameObject:
   m_ObjectHideFlags: 0

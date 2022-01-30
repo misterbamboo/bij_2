@@ -21,7 +21,7 @@ public class PeopleGenerator : MonoBehaviour
 
         float sizeX = targetSize.x - sideBuffer;
         float sizeZ = targetSize.y - sideBuffer;
-
+        
         GeneratePeople(GetCenterPos(), sizeX, sizeZ);
     }
 
