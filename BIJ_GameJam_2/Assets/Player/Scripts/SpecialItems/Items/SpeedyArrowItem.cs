@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Assets.Player.Scripts.SpecialItems.Items
 {
-    public class ThreeArrowsItem : SpecialItem
+    public class SpeedyArrowItem : SpecialItem
     {
         public override int Rarity => 5;
         public override int RespawnDelay => 0;
@@ -21,19 +20,19 @@ namespace Assets.Player.Scripts.SpecialItems.Items
             BoosterTime += Delay;
 
             bowInstance = other.GetComponentInChildren<Bow>();
-            bowInstance.UseThreeArrows = true;
+            bowInstance.UseSpeedyArrows = true;
 
             StartCoroutine(CheckSpecialItemTime());
 
             collider.enabled = false;
             renderer.enabled = false;
         }
-        
+
         private IEnumerator CheckSpecialItemTime()
         {
             yield return new WaitForSeconds(BoosterTime);
 
-            bowInstance.UseThreeArrows = false;
+            bowInstance.UseSpeedyArrows = false;
             Destroy(gameObject);
         }
     }
