@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EmoMouvements : MonoBehaviour
+public class ToonMouvements : MonoBehaviour
 {
     [SerializeField] private ArmAnimator leftArmAnimator;
     [SerializeField] private ArmAnimator rightArmAnimator;

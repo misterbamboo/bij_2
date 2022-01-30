@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -22,17 +21,16 @@ public class LoverMode : MonoBehaviour
 
     [SerializeField] private Material noneLoverMaterial;
 
+    [SerializeField] private Renderer[] loverRenderers;
+
     private List<LoverMode> closeLovers = new List<LoverMode>();
 
     private LoverMode targetLover;
-
-    private Renderer loverRenderer;
 
     private float lastDirection;
 
     void Start()
     {
-        loverRenderer = GetComponentInParent<Renderer>();
         lastDirection = Random.Range(0, MathF.PI * 5);
     }
 
@@ -103,7 +101,10 @@ public class LoverMode : MonoBehaviour
     {
         if (isInLove != wasInLove)
         {
-            loverRenderer.material = isInLove ? loverMaterial : noneLoverMaterial;
+            foreach (var loverRenderer in loverRenderers)
+            {
+                loverRenderer.material = isInLove ? loverMaterial : noneLoverMaterial;
+            }
         }
         wasInLove = isInLove;
     }
