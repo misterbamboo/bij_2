@@ -1,9 +1,16 @@
 using Assets.SharedKernel.Inputs;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public interface IPlayerController
 {
-    public static PlayerController Instance { get; private set; }
+    float Angle { get; set; }
+    Transform transform { get; }
+}
+
+public class PlayerController : MonoBehaviour, IPlayerController
+{
+    public static IPlayerController Instance { get; private set; }
+    public float Angle { get; set; }
 
     [SerializeField] private float height;
 
@@ -47,7 +54,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 Get45RotatedMovement()
     {
         var raw = GetRawInputMovement();
-        return Quaternion.AngleAxis(45, Vector3.up) * raw;
+        return Quaternion.AngleAxis(Angle, Vector3.up) * raw;
     }
 
     private Vector3 GetRawInputMovement()

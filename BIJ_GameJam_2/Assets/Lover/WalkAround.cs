@@ -53,11 +53,6 @@ public class WalkAround : MonoBehaviour
 
     private void MoveAimlessly()
     {
-        if (id == 15)
-        {
-            followId = 15;
-        }
-
         // In cooldown, wait
         if (IsInCooldown())
         {
