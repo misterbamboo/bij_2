@@ -10,6 +10,8 @@ public class Bow : MonoBehaviour
 
     [SerializeField] PredictionManager predictionManager;
 
+    [SerializeField] Animator animator;
+
     private float shootAngle = 30.0f;
 
     private float lastFire;
@@ -59,6 +61,9 @@ public class Bow : MonoBehaviour
     {
         GameManager.Instance.GameEvent(Assets.GameProgression.GameEvents.ArrowFired);
 
+        animator.ResetTrigger("Shoot");
+        animator.SetTrigger("Shoot");
+
         lastFire = 0;
         var arrow = Instantiate(arrowPrefab, transform.position, transform.rotation);
         ApplyForce(arrow, target);
@@ -70,6 +75,8 @@ public class Bow : MonoBehaviour
             var rightArrow = Instantiate(arrowPrefab, transform.position + Vector3.back, transform.rotation);
             ApplyForce(rightArrow, target);
         }
+
+        // animator.SetBool("Shoot", false);
     }
 
     private void ApplyForce(GameObject arrow, Vector3 target)
