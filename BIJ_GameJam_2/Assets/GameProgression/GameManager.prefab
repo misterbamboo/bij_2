@@ -901,6 +901,7 @@ GameObject:
   - component: {fileID: 8008901387383282687}
   - component: {fileID: 7161792449560756667}
   - component: {fileID: 4132629549718935835}
+  - component: {fileID: 6986668287896562132}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -995,6 +996,18 @@ MonoBehaviour:
   EndCounter: 5
   ProgressBar: {fileID: 4288457465946166804}
   Percentage: {fileID: 4376322799377539201}
+--- !u!114 &6986668287896562132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8008901387383282673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f36f0aa40f5c6d438b30128d4f27172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8031304937793637426
 GameObject:
   m_ObjectHideFlags: 0

@@ -9878,7 +9878,7 @@ Transform:
   - {fileID: 1283348043331137186}
   - {fileID: 1283348043132035579}
   m_Father: {fileID: 1283348042906511379}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -94.975, y: 0, z: 0}
 --- !u!1 &1283348042216853449
 GameObject:
@@ -10084,7 +10084,7 @@ Transform:
   - {fileID: 4376723149960752771}
   - {fileID: 1422181475864035654}
   m_Father: {fileID: 1283348042906511379}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1283348042792451079
 MeshFilter:
@@ -10252,6 +10252,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1283348042914764062}
+  - {fileID: 6985562037336290526}
   - {fileID: 1283348042792451076}
   - {fileID: 1283348042060855506}
   m_Father: {fileID: 0}
@@ -10309,7 +10310,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1283348042914764062}
-  - component: {fileID: 1283348042914764063}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -10334,23 +10334,6 @@ Transform:
   m_Father: {fileID: 1283348042906511379}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1283348042914764063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283348042914764061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53291a1d66251da4abd23dfa107e77c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrowPrefab: {fileID: 7402473282052663969, guid: d870d6a67c9d5f34d8ceaecbdb985b37,
-    type: 3}
-  fireRatePerSec: 2
-  UseThreeArrows: 0
-  UseSpeedyArrows: 0
 --- !u!1 &1283348042944913813
 GameObject:
   m_ObjectHideFlags: 0
@@ -16620,6 +16603,56 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8376198131912161356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6985562037336290526}
+  - component: {fileID: 5759205994106378138}
+  m_Layer: 0
+  m_Name: BowFiringPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6985562037336290526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8376198131912161356}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.345, z: 1.234}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1283348042906511379}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5759205994106378138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8376198131912161356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53291a1d66251da4abd23dfa107e77c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 7402473282052663969, guid: d870d6a67c9d5f34d8ceaecbdb985b37,
+    type: 3}
+  fireRatePerSec: 2
+  predictionManager: {fileID: 0}
+  UseThreeArrows: 0
+  UseSpeedyArrows: 0
 --- !u!1001 &2979515730169042111
 PrefabInstance:
   m_ObjectHideFlags: 0

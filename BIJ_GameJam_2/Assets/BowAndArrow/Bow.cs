@@ -26,7 +26,10 @@ public class Bow : MonoBehaviour
     {
         playerInput = PlayerInput.Instance;
         inputManager = FindObjectOfType<InputManager>();
-        inputManager.OnPlayerAttack += HandleOnAttack;
+        if (inputManager != null)
+        {
+            inputManager.OnPlayerAttack += HandleOnAttack;
+        }
     }
         
     private void HandleOnAttack(Vector3 target)
