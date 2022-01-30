@@ -15,10 +15,10 @@ public class Bow : MonoBehaviour
     private float lastFire;
 
     private IPlayerInput playerInput;
-
-    [SerializeField] public float BoosterTime;
-    private bool useThreeArrows;
-
+    
+    public bool UseThreeArrows;
+    public bool UseSpeedyArrows;
+    
     void Start()
     {
         playerInput = PlayerInput.Instance;
@@ -31,20 +31,14 @@ public class Bow : MonoBehaviour
         {
             FireArrow();
         }
-
-        if (BoosterTime > 0)
-        {
-            BoosterTime -= Time.deltaTime;
-            var time = TimeSpan.FromSeconds(BoosterTime);
-
-            useThreeArrows = time > TimeSpan.Zero;
-        } 
     }
 
     private bool ReadyToFire()
     {
+        var fireRate = UseSpeedyArrows ? fireRatePerSec * 3 : fireRatePerSec;
+
         lastFire += Time.deltaTime;
-        bool readyToFire = lastFire > 1 / fireRatePerSec;
+        bool readyToFire = lastFire > 1 / fireRate;
         return readyToFire;
     }
 
@@ -54,7 +48,7 @@ public class Bow : MonoBehaviour
         var arrow = Instantiate(arrowPrefab, transform.position, transform.rotation);
         ApplyForce(arrow);
 
-        if (useThreeArrows)
+        if (UseThreeArrows)
         {
             var leftArrow = Instantiate(arrowPrefab, transform.position + Vector3.left, transform.rotation);
             ApplyForce(leftArrow);

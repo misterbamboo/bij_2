@@ -22,9 +22,9 @@ namespace Assets.Player.Scripts.SpecialItems
             StartCoroutine(Spawn(0));
         }
         
-        public void InitiateSpawn()
+        public void InitiateSpawn(int waitTime)
         {
-            StartCoroutine(Spawn(10));
+            StartCoroutine(Spawn(waitTime));
         }
 
         private IEnumerator Spawn(int waitTime)
