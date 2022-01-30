@@ -29,6 +29,8 @@ namespace Assets.BowAndArrow
                 return;
             }
 
+            GameManager.Instance.GameEvent( GameProgression.GameEvents.LoverHitByArrow);
+
             var loverMeter = other.GetComponentInChildren<LoveMeter>();
             loverMeter.ModifyLove(AmountOfLove);
         }

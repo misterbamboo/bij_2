@@ -1,3 +1,4 @@
+using Assets.GameProgression;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -21,9 +22,16 @@ public class GameManager : MonoBehaviour
     public event Action OnGameStart = delegate { };
     public event Action<int> OnGameCounterIncrement = delegate { };
 
+    public event Action<GameEvents> OnGameEvent;
+
     void Awake()
     {
         Instance = this;
+    }
+
+    public void GameEvent(GameEvents gameEvent)
+    {
+        OnGameEvent?.Invoke(gameEvent);
     }
 
     public void IncrementGameCounter(int by) => OnGameCounterIncrement(by);

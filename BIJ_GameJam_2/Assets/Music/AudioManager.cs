@@ -1,41 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.GameProgression;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] AudioSource gameMusic;
-    [SerializeField] float startTime;
-    [SerializeField] float cropEnd;
-    private float croptime;
+    [SerializeField] private AudioSource bowSound;
+    [SerializeField] private AudioSource hurtSound;
 
     void Start()
     {
-        croptime = gameMusic.clip.length - cropEnd;
-        
+        GameManager.Instance.OnGameEvent += Instance_OnGameEvent;
     }
 
-    void Update()
+    private void Instance_OnGameEvent(GameEvents gameEvent)
     {
-        StartIfStopped();
-        CropEndAndLoop();
-    }
-
-    private void StartIfStopped()
-    {
-        if (!gameMusic.isPlaying)
+        switch (gameEvent)
         {
-            gameMusic.time = startTime;
-            gameMusic.Play();
+            case GameEvents.LoverHitByArrow:
+                PlayAudioSource(hurtSound);
+                break;
+            case GameEvents.ArrowFired:
+                PlayAudioSource(bowSound);
+                break;
+            default:
+                break;
         }
     }
 
-    private void CropEndAndLoop()
+    private void PlayAudioSource(AudioSource audioSource)
     {
-        if (gameMusic.time > croptime)
+        if (audioSource.isPlaying)
         {
-            gameMusic.time = 0;
+            audioSource.Stop();
+            audioSource.time = 0;
         }
+        audioSource.Play();
     }
 }

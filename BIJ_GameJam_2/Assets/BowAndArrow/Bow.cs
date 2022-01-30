@@ -15,7 +15,7 @@ public class Bow : MonoBehaviour
     private float lastFire;
 
     private IPlayerInput playerInput;
-    
+
     public bool UseThreeArrows;
 
     public bool UseSpeedyArrows;
@@ -31,7 +31,7 @@ public class Bow : MonoBehaviour
             inputManager.OnPlayerAttack += HandleOnAttack;
         }
     }
-        
+
     private void HandleOnAttack(Vector3 target)
     {
         transform.LookAt(target);
@@ -42,7 +42,7 @@ public class Bow : MonoBehaviour
         {
             FireArrow(target);
         }
-               
+
         predictionManager.Predict(arrowPrefab, transform.position, CalcBallisticVelocityVector(transform.position, target, shootAngle));
     }
 
@@ -57,6 +57,8 @@ public class Bow : MonoBehaviour
 
     private void FireArrow(Vector3 target)
     {
+        GameManager.Instance.GameEvent(Assets.GameProgression.GameEvents.ArrowFired);
+
         lastFire = 0;
         var arrow = Instantiate(arrowPrefab, transform.position, transform.rotation);
         ApplyForce(arrow, target);
@@ -72,7 +74,7 @@ public class Bow : MonoBehaviour
 
     private void ApplyForce(GameObject arrow, Vector3 target)
     {
-        var arrowRb = arrow.GetComponent<Rigidbody>();            
+        var arrowRb = arrow.GetComponent<Rigidbody>();
         var velocity = CalcBallisticVelocityVector(transform.position, target, shootAngle);
         arrowRb.velocity = velocity;
     }
